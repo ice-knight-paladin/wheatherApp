@@ -5,28 +5,72 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+
     tools:context=".MainActivity">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="5dp">
+        <TextView
+            android:id="@+id/tvTitleGPS"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/provider_gps"
+            android:textSize="30sp">
+        </TextView>
+        <TextView
+            android:id="@+id/tvEnabledGPS"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="24sp">
+        </TextView>
+        <TextView
+            android:id="@+id/tvStatusGPS"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="24sp">
+        </TextView>
+        <TextView
+            android:id="@+id/tvLocationGPS"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="24sp">
+        </TextView>
 
-    <TextView
-        android:id="@+id/text_field"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:paddingVertical="8dp"
-        android:text="Hello World!"
-        android:textAlignment="center"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <TextView
+            android:id="@+id/tvTitleNet"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="@string/provider_network"
+            android:textSize="30sp"></TextView>
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/update_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="GGGGGGGGG"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/text_field"
-        app:layout_constraintVertical_bias="0" />
+        <TextView
+            android:id="@+id/tvEnabledNet"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="24sp">
+        </TextView>
+        <TextView
+            android:id="@+id/tvStatusNet"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="24sp">
+        </TextView>
+        <TextView
+            android:id="@+id/tvLocationNet"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="24sp">
+        </TextView>
+
+        <Button
+            android:id="@+id/btnLocationSettings"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:onClick="onClickLocationSettings"
+            android:text="@string/location_settings"></Button>
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
