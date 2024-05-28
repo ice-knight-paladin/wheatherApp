@@ -47,9 +47,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        requestPermissions(INITIAL_PERMS, INITIAL_REQUEST)
-        checkLocation()
-
+//        requestPermissions(INITIAL_PERMS, INITIAL_REQUEST)
+        checkLocation()   //?
     }
     private fun checkLocation(){
         val manager = getSystemService(Context.LOCATION_SERVICE) as LocationManager
@@ -147,6 +146,10 @@ class MainActivity : AppCompatActivity() {
     override fun onResume() {
         super.onResume()
         startLocationUpdates()
+    }
+
+    fun cheaK(view: View) {
+        checkLocation()
     }
 
 }
