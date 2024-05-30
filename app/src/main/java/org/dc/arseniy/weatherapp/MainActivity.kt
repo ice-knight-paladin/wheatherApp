@@ -19,6 +19,9 @@ import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
+import com.android.volley.Request
+import com.android.volley.toolbox.StringRequest
+import com.android.volley.toolbox.Volley
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationCallback
 import com.google.android.gms.location.LocationRequest
@@ -41,6 +44,9 @@ class MainActivity : AppCompatActivity() {
     private lateinit var fusedLocationClient: FusedLocationProviderClient
     private lateinit var locationRequest: LocationRequest
     private lateinit var locationCallback: LocationCallback
+    private var latitude = 0.0
+    private var longtitude = 0.0
+    val API_KEY= "?????????????????"
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -98,6 +104,8 @@ class MainActivity : AppCompatActivity() {
                         val country: String = addresses[0].countryName
                         val postalCode: String = addresses[0].postalCode
                         val knownName: String = addresses[0].featureName
+                        latitude = addresses[0].latitude
+                        longtitude = addresses[0].longitude
                         binding.tvLocationGPS.text = "$address $city $state $postalCode $country $knownName"
                         Log.e("location", "$address $city $state $postalCode $country $knownName")
                     }
@@ -150,6 +158,22 @@ class MainActivity : AppCompatActivity() {
 
     fun cheaK(view: View) {
         checkLocation()
+    }
+
+
+    private fun requests(city:String){
+        val url = "https://api.openweathermap.org/data/3.0/onecall?lat=$latitude&lon=$longtitude&appid=$API_KEY"
+        val queu = Volley.newRequestQueue(this) //?
+        val req = StringRequest(
+            Request.Method.GET,
+            url,
+            {
+                resoult-> Log.d("urlOk", "Ok: $resoult")
+            },
+            {
+                eror -> Log.d("urlEror", "Error: $eror")
+            }
+        )
     }
 
 }
